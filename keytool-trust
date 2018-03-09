@@ -48,17 +48,17 @@ if sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' </tmp/keytool_stdout > /
 
 if $KEYTOOL -list -storepass ${KEYSTORE_PASS} -alias $REMHOST-$REMPORT >/dev/null
     then
-    echo "Key of $REMHOST already found, skipping it."
-    else
-    $KEYTOOL -import -trustcacerts -noprompt -storepass ${KEYSTORE_PASS} -alias $REMHOST-$REMPORT -file /tmp/$REMHOST-$REMPORT.pem
+    echo "Key of $REMHOST already found, deleting it."
+    $KEYTOOL -delete -alias $REMHOST-$REMPORT -storepass ${KEYSTORE_PASS}
     fi
+$KEYTOOL -import -trustcacerts -noprompt -storepass ${KEYSTORE_PASS} -alias $REMHOST-$REMPORT -file /tmp/$REMHOST-$REMPORT.pem
 
 if $KEYTOOL -list -storepass ${KEYSTORE_PASS} -alias $REMHOST-$REMPORT -keystore "$CACERTS" >/dev/null
     then
-    echo "Key of $REMHOST already found in cacerts, skipping it."
-    else
-    $KEYTOOL -import -trustcacerts -noprompt -keystore "$CACERTS" -storepass ${KEYSTORE_PASS} -alias $REMHOST-$REMPORT -file /tmp/$REMHOST-$REMPORT.pem
+    echo "Key of $REMHOST already found in cacerts, deleting it."
+    $KEYTOOL -delete -noprompt -alias $REMHOST-$REMPORT -storepass ${KEYSTORE_PASS} -keystore "$CACERTS"
     fi
+$KEYTOOL -import -trustcacerts -noprompt -keystore "$CACERTS" -storepass ${KEYSTORE_PASS} -alias $REMHOST-$REMPORT -file /tmp/$REMHOST-$REMPORT.pem
 
 fi
 
