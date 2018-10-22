@@ -9,8 +9,8 @@ KEYTOOL="keytool"
 
 # /etc/java-6-sun/security/cacerts
 
-for CACERTS in "E:\bin\Java\jre1.8.0_151\lib\security\cacerts" \
-                "E:\bin\Java\jdk1.8.0_151\jre\lib\security\cacerts"
+for CACERTS in "E:\bin\Java\jdk-10.0.2\lib\security\cacerts"
+
 do
 
 if [ -e "$CACERTS" ]
