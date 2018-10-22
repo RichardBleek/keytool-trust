@@ -1,7 +1,9 @@
 # keytool-trust
 
 Tool to install SSL certificates in JVM keystores
+
 This version is edited to run on Windows machines using a bash emulator
+
 
 ## How to use?
 ./keytool-trust server [port]
