@@ -1,15 +1,15 @@
 #!/bin/bash
-# version 1.0
+# forked from:
 # https://github.com/ssbarnea/keytool-trust
 REMHOST=$1
 REMPORT=${2:-443}
 
 KEYSTORE_PASS=changeit
+# if you want to run this on a mac or linux machine change 'keytool' to 'sudo keytool'
 KEYTOOL="keytool"
 
-# /etc/java-6-sun/security/cacerts
-
-for CACERTS in "E:\bin\Java\jdk-10.0.2\lib\security\cacerts"
+# replace path with your jdk/cacerts folder
+for CACERTS in "C:\bin\Java\jdk1.8.0_202\jre\lib\security"
 
 do
 

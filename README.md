@@ -2,10 +2,11 @@
 
 Tool to install SSL certificates in JVM keystores
 
-This version is edited to run on Windows machines using a bash emulator
-
+This fork is edited to run on Windows machines using a bash emulator
 
 ## How to use?
+Edit the keytool-trust file and put in your jdk/cacerts location on line 12 
+
 ./keytool-trust server [port]
 
 If port is not specified it will assume 443.
